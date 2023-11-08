@@ -11,12 +11,15 @@ namespace FizzBuzzApp
         static void Main(string[] args)
         {
             var serviceProvider = new ServiceCollection()
+            //.AddSingleton<ICheckConditions, CheckConditions>()
+            //.AddSingleton<ICheckConditions, CheckConditionsStepTwo>()
             .AddSingleton<ICheckConditions, CheckConditionsStepThree>()
             .AddSingleton<ICheckSequence, CheckSequence>()
             .AddSingleton<IListConverter, ListConverter>()
             .AddSingleton<ISequenceProcessing, SequenceProcessing>()
             .BuildServiceProvider();
 
+            //const string sequence = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15";
 
             const string sequence = "1, 2, 3, 4; 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 60, 105, 420";
 
@@ -26,6 +29,10 @@ namespace FizzBuzzApp
             try
             {
                 Numbers = sequenceProcessing.Process(sequence);
+            }
+            catch (FormatException ex) 
+            {
+                Console.WriteLine("Error! Incorrect input format.");
             }
             catch (Exception ex)
             {
@@ -37,7 +44,6 @@ namespace FizzBuzzApp
             {
                 Console.Write(number + " ");
             }
-            else Console.WriteLine("Error! Incorrect input.");
         }
     }
 }

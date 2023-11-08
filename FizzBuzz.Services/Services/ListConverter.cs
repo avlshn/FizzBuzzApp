@@ -1,15 +1,19 @@
 ﻿using FizzBuzz.Core.Interfaces;
 using FizzBuzz.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FizzBuzz.Services.Services;
 
+/// <summary>
+/// Converter class. Converts string to NumSequence.
+/// </summary>
 public class ListConverter : IListConverter
 {
+
+    /// <summary>
+    /// Converts string to NumSequence
+    /// </summary>
+    /// <param name="s">input string</param>
+    /// <returns>NumSequence with data</returns>
     public NumSequence ConvertToSequence(string s)
     {
         s = s.Replace(" ", "");

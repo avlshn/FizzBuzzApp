@@ -20,9 +20,9 @@ public class NumSequence
     /// <summary>
     /// Default constructor
     /// </summary>
-    /// <param name="ints">Ints sequence to store in class</param>
-    public NumSequence(List<string> ints)
+    /// <param name="nums">Ints sequence to store in class</param>
+    public NumSequence(List<string> nums)
     {
-         _sequence = ints;
+         _sequence = nums;
     }
 }
